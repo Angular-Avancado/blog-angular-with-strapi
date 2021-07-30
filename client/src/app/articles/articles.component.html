@@ -1,0 +1,69 @@
+<div class="uk-section">
+  <div class="uk-container uk-container-large">
+    <div class="uk-child-width-1-2" uk-grid>
+      <!-- leftArticles -->
+      <div>
+        <a
+          routerLink="/article/{{ article.id }}"
+          routerLinkActive="active"
+          *ngFor="let article of leftArticles"
+          class="uk-link-reset"
+        >
+          <div class="uk-card uk-card-muted">
+            <!-- Image article -->
+            <div *ngIf="article.image" class="uk-card-media-top">
+              <img
+                src="http://localhost:1337{{ article.image.url }}"
+                alt=""
+                height="100"
+              />
+            </div>
+
+            <!-- Category | Title -->
+            <div class="uk-card-body">
+              <p
+                id="category"
+                *ngIf="article.category"
+                class="uk-text-uppercase"
+              >
+                {{ article.category.name }}
+              </p>
+              <p id="title" class="uk-text-large">{{ article.title }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- rightArticles -->
+      <div>
+        <div class="uk-child-width-1-2@m uk-grid-match" uk-grid>
+          <a
+            routerLink="/article/{{ article.id }}"
+            routerLinkActive="active"
+            *ngFor="let article of rightArticles"
+            class="uk-link-reset"
+          >
+            <div class="uk-card uk-card-muted">
+              <!-- Image article -->
+              <div *ngIf="article.image" class="uk-card-media-top">
+                <img
+                  src="http://localhost:1337{{ article.image.url }}"
+                  alt=""
+                  height="100"
+                />
+              </div>
+
+              <!-- Category | Title -->
+              <div class="uk-card-body">
+                <p id="category" *ngIf="article.category" class="uk-text-uppercase">
+                  {{ article.category.name }}
+                </p>
+                <p id="title" class="uk-text-large">{{ article.title }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
